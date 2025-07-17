@@ -1,5 +1,4 @@
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
 import { Input } from "../ui/input";
 import { BsSearch } from "react-icons/bs";
 import { Chat_Single } from "../ui/chat-single";

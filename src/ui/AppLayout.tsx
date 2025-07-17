@@ -3,12 +3,12 @@ import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
-    <div className="flex">
+    <main className="flex items-start justify-start bg-background size-full font-dm-sans">
       <SideBar />
-      <main>
+      <div className="flex size-full items-start justify-start h-screen">
         <Outlet />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

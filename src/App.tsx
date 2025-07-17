@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
-import Chat from "./pages/Chat";
+import Chat_Board from "./pages/Chat_Board";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 
@@ -9,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="/" element={<Chat />} />
+          <Route path="/" element={<Chat_Board />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
         </Route>

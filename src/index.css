@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -11,6 +13,11 @@
   --color-input-background: var(--input-background);
   --color-background: var(--background);
   --color-side-background: var(--side-background);
+  --color-active-green: var(--active-green);
+
+  /* FONTS */
+  --font-dm-sans: "DM Sans", sans-serif;
+
 }
 
 :root {
@@ -20,6 +27,7 @@
   --background: #12171d;
   --side-background: #1e2126;
   --input-background: #16191c;
+  --active-green:#34E449;
 }
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {

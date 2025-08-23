@@ -1,0 +1,98 @@
+{
+  "Smileys & Emotion": [
+    { "name": "grinning face", "emoji": "😀" },
+    { "name": "face with tears of joy", "emoji": "😂" },
+    { "name": "smiling face with heart-eyes", "emoji": "😍" },
+    { "name": "thinking face", "emoji": "🤔" },
+    { "name": "crying face", "emoji": "😢" },
+    { "name": "star-struck", "emoji": "🤩" },
+    { "name": "face with rolling eyes", "emoji": "🙄" },
+    { "name": "smiling face with halo", "emoji": "😇" },
+    { "name": "exploding head", "emoji": "🤯" },
+    { "name": "partying face", "emoji": "🥳" }
+  ],
+  "People & Body": [
+    { "name": "waving hand", "emoji": "👋" },
+    { "name": "thumbs up", "emoji": "👍" },
+    { "name": "clapping hands", "emoji": "👏" },
+    { "name": "folded hands", "emoji": "🙏" },
+    { "name": "flexed biceps", "emoji": "💪" },
+    { "name": "raising hands", "emoji": "🙌" },
+    { "name": "person facepalming", "emoji": "🤦" },
+    { "name": "person shrugging", "emoji": "🤷" },
+    { "name": "nail polish", "emoji": "💅" },
+    { "name": "selfie", "emoji": "🤳" }
+  ],
+  "Animals & Nature": [
+    { "name": "dog", "emoji": "🐶" },
+    { "name": "cat", "emoji": "🐱" },
+    { "name": "panda", "emoji": "🐼" },
+    { "name": "monkey", "emoji": "🐵" },
+    { "name": "unicorn", "emoji": "🦄" },
+    { "name": "lion", "emoji": "🦁" },
+    { "name": "tiger", "emoji": "🐯" },
+    { "name": "rabbit", "emoji": "🐰" },
+    { "name": "koala", "emoji": "🐨" },
+    { "name": "bear", "emoji": "🐻" }
+  ],
+  "Food & Drink": [
+    { "name": "pizza", "emoji": "🍕" },
+    { "name": "burger", "emoji": "🍔" },
+    { "name": "taco", "emoji": "🌮" },
+    { "name": "ice cream", "emoji": "🍦" },
+    { "name": "coffee", "emoji": "☕" },
+    { "name": "strawberry", "emoji": "🍓" },
+    { "name": "banana", "emoji": "🍌" },
+    { "name": "cake", "emoji": "🍰" },
+    { "name": "fries", "emoji": "🍟" },
+    { "name": "sushi", "emoji": "🍣" }
+  ],
+  "Travel & Places": [
+    { "name": "airplane", "emoji": "✈️" },
+    { "name": "car", "emoji": "🚗" },
+    { "name": "train", "emoji": "🚆" },
+    { "name": "ship", "emoji": "🚢" },
+    { "name": "rocket", "emoji": "🚀" },
+    { "name": "beach with umbrella", "emoji": "🏖️" },
+    { "name": "mountain", "emoji": "⛰️" },
+    { "name": "tent", "emoji": "⛺" },
+    { "name": "cityscape", "emoji": "🏙️" },
+    { "name": "globe showing Africa", "emoji": "🌍" }
+  ],
+  "Objects": [
+    { "name": "laptop", "emoji": "💻" },
+    { "name": "mobile phone", "emoji": "📱" },
+    { "name": "light bulb", "emoji": "💡" },
+    { "name": "camera", "emoji": "📷" },
+    { "name": "headphone", "emoji": "🎧" },
+    { "name": "watch", "emoji": "⌚" },
+    { "name": "book", "emoji": "📖" },
+    { "name": "money bag", "emoji": "💰" },
+    { "name": "gift", "emoji": "🎁" },
+    { "name": "musical note", "emoji": "🎵" }
+  ],
+  "Symbols": [
+    { "name": "red heart", "emoji": "❤️" },
+    { "name": "fire", "emoji": "🔥" },
+    { "name": "hundred points", "emoji": "💯" },
+    { "name": "sparkles", "emoji": "✨" },
+    { "name": "check mark", "emoji": "✔️" },
+    { "name": "cross mark", "emoji": "❌" },
+    { "name": "warning", "emoji": "⚠️" },
+    { "name": "prohibited", "emoji": "🚫" },
+    { "name": "infinity", "emoji": "♾️" },
+    { "name": "peace symbol", "emoji": "☮️" }
+  ],
+  "Activities": [
+    { "name": "soccer ball", "emoji": "⚽" },
+    { "name": "basketball", "emoji": "🏀" },
+    { "name": "tennis", "emoji": "🎾" },
+    { "name": "guitar", "emoji": "🎸" },
+    { "name": "microphone", "emoji": "🎤" },
+    { "name": "video game", "emoji": "🎮" },
+    { "name": "trophy", "emoji": "🏆" },
+    { "name": "party popper", "emoji": "🎉" },
+    { "name": "balloon", "emoji": "🎈" },
+    { "name": "fireworks", "emoji": "🎆" }
+  ]
+}

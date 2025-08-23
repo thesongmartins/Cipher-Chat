@@ -14,7 +14,6 @@ export const Chat_Side_Bar = () => {
           </div>
           <div className="flex items-center gap-4 pl-3.5 justify-start  overflow-x-scroll no-scrollbar w-full">
             <Active_Chat name="Michael" />
-            <Active_Chat name="Dan De Lion" />
             <Active_Chat />
           </div>
 
@@ -28,14 +27,6 @@ export const Chat_Side_Bar = () => {
           </div>
         </div>
         <div className="flex flex-col items-start gap-6 justify-start text-chats-texts overflow-y-scroll no-scrollbar h-full px-3.5  ">
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
-          <Chat_Single />
           <Chat_Single />
         </div>
       </section>

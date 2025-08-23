@@ -27,7 +27,7 @@ export const useMessageStore = create<MessageState>()(
                   id: crypto.randomUUID(),
                   createdAt: Date.now(),
                   inputText,
-                },
+                } as Message,
               ],
             };
           }),

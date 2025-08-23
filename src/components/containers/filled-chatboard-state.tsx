@@ -16,7 +16,8 @@ export const Filled_Chatboard_State = () => {
   const [inputText, setUpdateMessage] = useState("");
   const [openEmoji, setOpenEmoji] = useState(false);
   const addMessage = useMessageStore((s) => s.addMessage);
-  const handleUpdater = (e: FormEvent) => {
+
+  const handleUpdater = (e: FormEvent | React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     if (inputText.trim()) {
@@ -25,7 +26,7 @@ export const Filled_Chatboard_State = () => {
     }
   };
 
-  const handleEnterKey = (e: KeyboardEvent | FormEvent) => {
+  const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleUpdater(e);
     }

@@ -3,12 +3,14 @@ import React from "react";
 import { FaCircle } from "react-icons/fa";
 
 interface individualChatProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
+  className1?: string;
+  className2?: string;
   isActive?: boolean;
   text?: string;
 }
 export const Individual_Chat = ({
-  className,
+  className1,
+  className2,
   isActive,
   text = "Hey, how are you doing?",
   ...rest
@@ -16,7 +18,10 @@ export const Individual_Chat = ({
   return (
     <div
       {...rest}
-      className="flex text-white items-center justify-center gap-3"
+      className={clsx(
+        className1,
+        "flex text-white items-center justify-center gap-3"
+      )}
     >
       <fieldset className="relative flex items-center justify-center">
         <img
@@ -30,7 +35,7 @@ export const Individual_Chat = ({
       </fieldset>
       <div className="flex flex-col items-start justify-start gap-1  ">
         <h3 className="text-base ont-medium">That_guy_dhave</h3>
-        <small className={clsx("text-xs text-time-texts", className)}>
+        <small className={clsx("text-xs text-time-texts", className2)}>
           {isActive ? "online" : text}
         </small>
       </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const Active_Chat = ({ name = "Swag" }: { name?: string }) => {
+export const Active_Chat = () => {
   const [data, setData] = useState([]);
 
   const fetchActiveChat = async () => {
@@ -10,7 +10,11 @@ export const Active_Chat = ({ name = "Swag" }: { name?: string }) => {
       if (!res.ok) throw new Error("Failed to fetch data");
       setData(data);
     } catch (err: unknown) {
-      console.error("Erro:", err.message);
+      if (err instanceof Error) {
+        console.error("Error:", err.message);
+      } else {
+        console.error("Unknown error:", err);
+      }
     }
   };
   useEffect(() => {
@@ -24,12 +28,11 @@ export const Active_Chat = ({ name = "Swag" }: { name?: string }) => {
         alt="profile images"
         className="object-cover size-12 shrink-0"
       />
-      <p>
-        {" "}
-        {data.map((da) => (
+
+      {Array.isArray(data) &&
+        data.map((da: { id: string | number; user: string }) => (
           <p key={da.id}>{da.user}</p>
         ))}
-      </p>
     </div>
   );
 };

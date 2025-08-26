@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -17,7 +17,6 @@
 
   /* FONTS */
   --font-dm-sans: "DM Sans", sans-serif;
-
 }
 
 :root {
@@ -27,8 +26,19 @@
   --background: #12171d;
   --side-background: #1e2126;
   --input-background: #16191c;
-  --active-green:#34E449;
+  --active-green: #34e449;
 }
+
+/* Dark mode support */
+.dark {
+  --search-placeholder: #9ca3af;
+  --chats-texts: #f3f4f6;
+  --time-texts: #6b7280;
+  --background: #111827;
+  --side-background: #1f2937;
+  --input-background: #374151;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -37,4 +47,17 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+/* Profile flow specific styles */
+/* .profile-avatar {
+  @apply w-24 h-24 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center;
+}
+
+.profile-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700;
+}
+
+.profile-input {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white;
 } */

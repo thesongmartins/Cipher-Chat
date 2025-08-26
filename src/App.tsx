@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import Chat_Board from "./pages/Chat_Board";
-import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (

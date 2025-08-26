@@ -13,7 +13,7 @@ export const Chat_Side_Bar = () => {
             <h1>Chats</h1> <AiOutlinePlusCircle />
           </div>
           <div className="flex items-center gap-4 pl-3.5 justify-start  overflow-x-scroll no-scrollbar w-full">
-            <Active_Chat name="Michael" />
+            <Active_Chat />
             <Active_Chat />
           </div>
 

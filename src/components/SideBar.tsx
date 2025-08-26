@@ -19,7 +19,7 @@ const SideBar = () => {
             <Link to="/profile">
               <img src="Icons/Profile.svg" alt="Profile Button" />
             </Link>
-            <Link to="settings">
+            <Link to="/settings">
               <img src="Icons/Settings.svg" alt="Settings Button" />
             </Link>
           </div>

@@ -10,11 +10,10 @@ export const Right_Message = () => {
   const { formatTime } = useFormatTime();
   const [open, setOpen] = useState<string | null>(null);
 
-  const handleToggle = (id: null) => {
+  const handleToggle = (id: null | string) => {
     setOpen((prev) => (prev === id ? null : id));
   };
 
-  const handleDelete = () => {};
   return (
     <div className="flex flex-col items-end justify-end gap-2.5 ">
       {message.map((message, id) => {
@@ -23,6 +22,8 @@ export const Right_Message = () => {
           <div key={id} className="gap-1 flex flex-col items-end">
             <Message
               createdAt={formatTime(message.createdAt)}
+              file={message.file}
+              voiceNote={message.voiceNote}
               onClick={() => handleToggle(message.id)}
             >
               {message.inputText}

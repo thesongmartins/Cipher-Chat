@@ -121,7 +121,7 @@ const Settings = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => setShowDeleteConfirm(true)}
-                  className="border-red-300 text-red-700 hover:bg-red-50 hover:border-red-400"
+                  className="ml-2 border-red-300 text-red-700 hover:bg-red-50 hover:border-red-400"
                 >
                   Delete Account
                 </Button>
@@ -132,8 +132,8 @@ const Settings = () => {
 
         {/* Delete Confirmation Modal */}
         {showDeleteConfirm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md mx-4">
+          <div className="fixed inset-0 bg-side-background flex items-center justify-center z-50">
+            <div className="bg-background rounded-lg p-6 w-full max-w-md mx-4">
               <div className="text-center">
                 <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900 mb-4">
                   <svg
@@ -163,7 +163,7 @@ const Settings = () => {
                   <Button
                     variant="outline"
                     onClick={() => setShowDeleteConfirm(false)}
-                    className="flex-1"
+                    className="flex-1 bg-active-green"
                   >
                     Cancel
                   </Button>

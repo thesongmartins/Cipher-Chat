@@ -4,7 +4,7 @@ type Message = {
   id: string;
   createdAt: number;
   createdTime: string;
-  inputText: string;
+  inputText: string | null;
   file?: File | null;
   voiceNote?: string | null;
 };

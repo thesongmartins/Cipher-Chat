@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useFormatTime } from "../../hooks/useFormatTime";
-import { useMessageStore } from "../../store/message-store";
+import { useFormatTime } from "../../../hooks/useFormatTime";
+import { useMessageStore } from "../../../store/message-store";
 import { Message } from "./message";
 import { AiFillDelete } from "react-icons/ai";
 

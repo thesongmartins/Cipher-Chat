@@ -1,10 +1,23 @@
 import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { FaMicrophone } from "react-icons/fa";
-import { GrCheckmark } from "react-icons/gr";
 import { LuDelete } from "react-icons/lu";
 
-export function VoiceNoteRecorder() {
+type VoiceRec = {
+  setRecordingBlob: Dispatch<SetStateAction<Blob | null>>;
+  previewUrl: string | null;
+  setPreviewUrl: Dispatch<SetStateAction<string | null>>;
+  seconds: number;
+  setSeconds: Dispatch<SetStateAction<number>>;
+};
+
+export function VoiceNoteRecorder({
+  setRecordingBlob,
+  previewUrl,
+  setPreviewUrl,
+  seconds,
+  setSeconds,
+}: VoiceRec) {
   // ---- refs ----
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -12,10 +25,7 @@ export function VoiceNoteRecorder() {
   const intervalRef = useRef<number | null>(null);
 
   // ---- state ----
-  const [isRecording, setIsRecording] = useState(false);
-  const [seconds, setSeconds] = useState(0);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [recordingBlob, setRecordingBlob] = useState<Blob | null>(null);
+  const [isRecording, setIsRecording] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   // ---- helpers ----
@@ -74,6 +84,10 @@ export function VoiceNoteRecorder() {
 
   // ---- startRecording: minimal, called on user gesture ----
   const startRecording = async () => {
+    setPreviewUrl(null);
+    setRecordingBlob(null);
+    audioChunksRef.current = [];
+
     if (isRecording) return; // noop if already recording
     setError(null);
 
@@ -106,7 +120,9 @@ export function VoiceNoteRecorder() {
 
       // when stop invoked, finalize
       recorder.onstop = () => {
-        finalizeRecording(recorder.mimeType ?? options.mimeType);
+        if (audioChunksRef.current.length > 0) {
+          finalizeRecording(recorder.mimeType ?? options.mimeType);
+        }
       };
 
       recorder.start();
@@ -135,7 +151,10 @@ export function VoiceNoteRecorder() {
 
     try {
       // stop triggers onstop which calls finalizeRecording
-      if (mediaRecorderRef.current.state !== "inactive") {
+      if (
+        mediaRecorderRef.current &&
+        mediaRecorderRef.current.state !== "inactive"
+      ) {
         mediaRecorderRef.current.stop();
       } else {
         finalizeRecording(mediaRecorderRef.current.mimeType);
@@ -159,6 +178,7 @@ export function VoiceNoteRecorder() {
     setPreviewUrl(null);
     setRecordingBlob(null);
     setSeconds(0);
+    audioChunksRef.current = [];
   };
 
   // cleanup on unmount
@@ -166,6 +186,9 @@ export function VoiceNoteRecorder() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       stopAllTracks();
+
+      if (mediaRecorderRef.current) mediaRecorderRef.current = null;
+      if (streamRef.current) streamRef.current = null;
       if (previewUrl) {
         try {
           URL.revokeObjectURL(previewUrl);
@@ -191,7 +214,7 @@ export function VoiceNoteRecorder() {
     <div className="relative">
       {/* preview area (after stop) */}
       {previewUrl && (
-        <div className="absolute -top-32 left-0 bg-background p-5 shadow-sm flex gap-2 w-90">
+        <div className="absolute -top-30  z-10 left-0 bg-background p-5 shadow-sm flex gap-2 w-90">
           <audio controls src={previewUrl} className="w-full" />
           <div className="flex gap-2 *:rounded-full items-center *:flex *:border *:text-white *:items-center *:cursor-pointer *:text-base *:py-2 *:px-2">
             <button
@@ -199,9 +222,6 @@ export function VoiceNoteRecorder() {
               className="bg-red-500 border-red-500"
             >
               <LuDelete />
-            </button>
-            <button className="bg-green-500 border-green-500">
-              <GrCheckmark />
             </button>
           </div>
         </div>
@@ -232,9 +252,7 @@ export function VoiceNoteRecorder() {
 
         {error && <span className="text-xs text-red-600">{error}</span>}
 
-        <span className="text-sm">
-          {isRecording && <small> ...... {fmt(seconds)}</small>}
-        </span>
+        <small className="text-xs">{isRecording && <>{fmt(seconds)}</>}</small>
       </div>
     </div>
   );

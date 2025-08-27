@@ -1,6 +1,6 @@
-import emojis from "../../data/emojis.json";
-import { useMessageStore } from "../../store/message-store";
-import { EmojiData } from "../../types/emojis";
+import emojis from "../../../data/emojis.json";
+import { useMessageStore } from "../../../store/message-store";
+import { EmojiData } from "../../../types/emojis";
 const EmojiCard = ({
   handleEmoji,
 }: {
@@ -17,7 +17,6 @@ const EmojiCard = ({
   return (
     <>
       <div className="gap-2 no-scrollbar size-[300px] overflow-y-scroll flex flex-col rounded-xl p-2 bg-black/20 backdrop-blur-xs ">
-        
         {/* converts the JSON object into an array of Key value pairs */}
         {Object.entries(emoji).map(([category, items]) => (
           <section

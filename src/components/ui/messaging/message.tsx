@@ -10,8 +10,8 @@ export const Message = ({
 }: {
   children: React.ReactNode;
   createdAt: React.ReactNode;
-  file: File | null;
-  voiceNote: string | null;
+  file?: File | null;
+  voiceNote?: string | null;
   onClick: () => void;
 }) => {
   return (

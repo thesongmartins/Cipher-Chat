@@ -3,16 +3,16 @@ import { PiVideoCameraLight } from "react-icons/pi";
 import { IoCallOutline } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 import { Input } from "../ui/input";
-import { FaMicrophone } from "react-icons/fa";
 import { GrImage } from "react-icons/gr";
 import { BsEmojiSmile } from "react-icons/bs";
 import { LuSend } from "react-icons/lu";
 import { ChatBoard_Message_Body } from "./chatBoard-message-body";
 import { FormEvent, useRef, useState } from "react";
 import { useMessageStore } from "../../store/message-store";
-import EmojiCard from "../ui/emojiCard";
-import { FileInput } from "../ui/fileInput";
-import { VoiceNoteRecorder } from "../ui/voice-note-recorder";
+import EmojiCard from "../ui/messaging/emojiCard";
+import { FileInput } from "../ui/messaging/fileInput";
+import { VoiceNoteRecorder } from "../ui/messaging/voice-note-recorder";
+import clsx from "clsx";
 
 export const Filled_Chatboard_State = () => {
   const [inputText, setInputText] = useState("");
@@ -24,16 +24,22 @@ export const Filled_Chatboard_State = () => {
   // state for fileInput management
   const [fileInput, setFileInput] = useState<File | null>(null);
 
+  // --- store the preview audio URL
+  const [audioURL, setAudioURL] = useState<string | null>(null);
+
+  // to disable recording button when previewing audio
+  const [disable, setDisable] = useState<boolean>(false);
+
   // Fn handles sending message by button click
   const handleUpdater = (
     e: FormEvent | React.KeyboardEvent<HTMLInputElement>
   ) => {
     e.preventDefault();
 
-    if (inputText.trim() || fileInput) {
-      addMessage(inputText, fileInput);
+    if (inputText.trim() || fileInput || audioURL) {
+      addMessage(inputText, fileInput, audioURL);
       setInputText("");
-      setFileInput(null);
+      setAudioURL(null);
     }
   };
 
@@ -91,19 +97,22 @@ export const Filled_Chatboard_State = () => {
               <EmojiCard handleEmoji={handleEmoji} />
             </div>
           )}
-          <VoiceNoteRecorder />
 
+          {/* Voice Recorder Preview */}
+          <VoiceNoteRecorder audioURL={audioURL} setAudioURL={setAudioURL} />
           <Input
             type="text"
             name="message"
             value={inputText}
+            disabled={disable}
             onKeyDown={handleEnterKey}
             onChange={(e) => setInputText(e.target.value)}
-            className="bg-input-background placeholder:text-xs placeholder:text-search-placeholder w-full px-3.5 py-2 
-            focus:border-0 border-0 focus-visible:ring-0"
+            className={clsx(
+              "bg-input-background placeholder:text-xs placeholder:text-search-placeholder w-full px-3.5 py-2 focus:border-0 border-0 focus-visible:ring-0"
+            )}
             placeholder="Send a message..."
           />
-          <div className="flex *:cursor-pointer items-center justify-between gap-4 *:text-[21px]">
+          <div className="flex items-center justify-between gap-4 *:cursor-pointer *:text-[21px]">
             <span className="flex items-center">
               <input
                 type="file"
@@ -111,20 +120,20 @@ export const Filled_Chatboard_State = () => {
                 className="hidden"
                 onChange={handleFileInput}
               />
-              <button onClick={handleFileClick} className="cursor-pointer">
+              <button onClick={handleFileClick} className={clsx()}>
                 <GrImage />
               </button>
             </span>
-            <span
+            <button
               onClick={() => setOpenEmoji(!openEmoji)}
-              className={
+              className={clsx(
                 openEmoji
                   ? "bg-chats-texts text-background font-bold rounded-lg p-2 "
                   : ""
-              }
+              )}
             >
               <BsEmojiSmile />
-            </span>
+            </button>
             <button
               type="submit"
               onClick={handleUpdater}

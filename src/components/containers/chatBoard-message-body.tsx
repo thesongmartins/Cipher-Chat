@@ -1,5 +1,5 @@
-import { Left_Message } from "../ui/left-message";
-import { Right_Message } from "../ui/right-message";
+import { Left_Message } from "../ui/messaging/left-message";
+import { Right_Message } from "../ui/messaging/right-message";
 
 export const ChatBoard_Message_Body = () => {
   return (

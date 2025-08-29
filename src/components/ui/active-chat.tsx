@@ -1,25 +1,21 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export const Active_Chat = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const fetchActiveChat = async () => {
-    try {
-      const res = await fetch("/src/api/api.active_chat.json");
-      const data = await res.json();
-      if (!res.ok) throw new Error("Failed to fetch data");
-      setData(data);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.error("Error:", err.message);
-      } else {
-        console.error("Unknown error:", err);
-      }
-    }
-  };
-  useEffect(() => {
-    fetchActiveChat();
-  }, []);
+  // const fetchActiveChat = async () => {
+  //   try {
+  //     const res = await fetch("/src/api/api.active_chat.json");
+  //     // const data = await res.json();
+  //     if (!res.ok) throw new Error("Failed to fetch data");
+  //     setData(data);
+  //   } catch (err: unknown) {
+  //     console.error("Erro:", err.message);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchActiveChat();
+  // }, []);
 
   return (
     <div className="flex items-center gap-2 flex-col whitespace-nowrap">
@@ -28,11 +24,6 @@ export const Active_Chat = () => {
         alt="profile images"
         className="object-cover size-12 shrink-0"
       />
-
-      {Array.isArray(data) &&
-        data.map((da: { id: string | number; user: string }) => (
-          <p key={da.id}>{da.user}</p>
-        ))}
     </div>
   );
 };

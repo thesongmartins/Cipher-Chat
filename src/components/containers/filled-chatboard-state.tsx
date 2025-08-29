@@ -18,10 +18,6 @@ export const Filled_Chatboard_State = () => {
   const [inputText, setInputText] = useState("");
   const [openEmoji, setOpenEmoji] = useState(false);
   const addMessage = useMessageStore((s) => s.addMessage);
-<<<<<<< HEAD
-
-  const handleUpdater = (e: FormEvent | React.KeyboardEvent<HTMLInputElement>) => {
-=======
   const emoji = useMessageStore((s) => s.emoji);
   // ref for fileInput
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -38,7 +34,6 @@ export const Filled_Chatboard_State = () => {
   const handleUpdater = (
     e: FormEvent | React.KeyboardEvent<HTMLInputElement>
   ) => {
->>>>>>> fd17033b2ef7db1815f04300b05229dbb1e72d64
     e.preventDefault();
 
     if (inputText.trim() || fileInput || audioURL) {
@@ -48,10 +43,7 @@ export const Filled_Chatboard_State = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
   // Fn handles sending message by Enter keypress
->>>>>>> fd17033b2ef7db1815f04300b05229dbb1e72d64
   const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleUpdater(e);
